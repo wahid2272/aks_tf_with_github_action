@@ -5,11 +5,11 @@ variable "agent_count" {
 # The following two variable declarations are placeholder references.
 # Set the values for these variable in terraform.tfvars
 variable "aks_service_principal_app_id" {
-  default = ""
+  default = "spn-id"
 }
 
 variable "aks_service_principal_client_secret" {
-  default = ""
+  default = "spn-secret"
 }
 
 variable "cluster_name" {
@@ -45,5 +45,6 @@ variable "resource_group_name_prefix" {
 }
 
 variable "ssh_public_key" {
-  default = "~/.ssh/id_rsa_tf.pub"
+#   default = "~/.ssh/id_rsa_tf.pub"
+  default = "LinuxSSHPubKey"
 }
