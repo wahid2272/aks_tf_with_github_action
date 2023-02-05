@@ -1,0 +1,17 @@
+#  Local .terraform directories
+.terraform
+.terraform.lock.hcl
+**/.terraform/*
+
+# .tfstate files
+*.tfstate
+*.tfstate.*
+
+# .tfvars files
+*.tfvars
+
+# Azure conf file
+azurek8s
+
+# Local .vscode directories
+.vscode/*
