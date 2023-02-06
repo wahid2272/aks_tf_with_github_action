@@ -6,9 +6,9 @@ trigger:
 pool:
   vmImage: 'ubuntu-latest'
 
-variables:
-  rgname: $(rgname)
-  vaultname: $(vaultname)
+# variables:
+#   rgname: $(rgname)
+#   vaultname: $(vaultname)
 
 steps:
 - task: AzureKeyVault@2
@@ -47,8 +47,10 @@ steps:
     command: 'plan'
     environmentServiceNameAzureRM: 'Private Account wahid2272'
     environmentVariables:
-      - 'RG_NAME': '$(rgname)'
-      - 'VAULT_NAME': '$(vaultname)'
+      - name: 'TF_VAR_keyvault_rg'
+        value: '$(rgname)'
+      - name: 'TF_VAR_keyvault_name'
+        value: '$(vaultname)'
 
 - task: TerraformTaskV3@3
   inputs:
@@ -56,5 +58,7 @@ steps:
     command: 'apply'
     environmentServiceNameAzureRM: 'Private Account wahid2272'
     environmentVariables:
-      - 'RG_NAME': '$(rgname)'
-      - 'VAULT_NAME': '$(vaultname)'
+      - name: 'TF_VAR_keyvault_rg'
+        value: '$(rgname)'
+      - name: 'TF_VAR_keyvault_name'
+        value: '$(vaultname)'

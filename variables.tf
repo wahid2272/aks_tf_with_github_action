@@ -53,9 +53,7 @@ variable "ssh_public_key" {
 
 variable "keyvault_rg" {
   type    = string
-  default = "RG_NAME"
 }
 variable "keyvault_name" {
   type    = string
-  default = "VAULT_NAME"
 }
