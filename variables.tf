@@ -4,6 +4,10 @@ variable "agent_count" {
 
 # The following two variable declarations are placeholder references.
 # Set the values for these variable in terraform.tfvars
+variable "rg_name" {
+  default = "aks-terraform"
+}
+
 variable "aks_service_principal_app_id" {
   default = "spn-id"
 }

@@ -1,11 +1,7 @@
-# Generate random resource group name
-resource "random_pet" "rg_name" {
-  prefix = var.resource_group_name_prefix
-}
-
+# Resource Group
 resource "azurerm_resource_group" "rg" {
   location = var.resource_group_location
-  name     = random_pet.rg_name.id
+  name     = var.rg_name.id
 }
 
 resource "random_id" "log_analytics_workspace_name_suffix" {
