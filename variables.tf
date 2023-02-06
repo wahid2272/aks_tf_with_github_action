@@ -9,6 +9,10 @@ variable "rg_name" {
   default = "aks-terraform"
 }
 
+variable "STORAGE_KEY" {
+  description = "storage key id"
+}
+
 variable "APP_ID" {
   description = "service principal app id"
 #   default = "spn-id"
