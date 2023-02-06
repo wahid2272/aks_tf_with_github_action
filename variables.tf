@@ -48,12 +48,6 @@ variable "ssh_public_key" {
 #   type        = string
   description = "The SSH public key."
 #   default = "~/.ssh/id_rsa_tf.pub"
-#   default = "LinuxSSHPubKey"
+  default = "LinuxSSHPubKey"
 }
 
-variable "keyvault_rg" {
-  type    = string
-}
-variable "keyvault_name" {
-  type    = string
-}

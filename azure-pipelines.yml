@@ -46,19 +46,9 @@ steps:
     provider: 'azurerm'
     command: 'plan'
     environmentServiceNameAzureRM: 'Private Account wahid2272'
-    environmentVariables:
-      - name: 'TF_VAR_keyvault_rg'
-        value: '$(rgname)'
-      - name: 'TF_VAR_keyvault_name'
-        value: '$(vaultname)'
 
 - task: TerraformTaskV3@3
   inputs:
     provider: 'azurerm'
     command: 'apply'
     environmentServiceNameAzureRM: 'Private Account wahid2272'
-    environmentVariables:
-      - name: 'TF_VAR_keyvault_rg'
-        value: '$(rgname)'
-      - name: 'TF_VAR_keyvault_name'
-        value: '$(vaultname)'
