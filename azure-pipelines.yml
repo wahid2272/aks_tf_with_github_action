@@ -18,6 +18,8 @@ steps:
     SecretsFilter: '*'
     RunAsPreJob: false
 
+
+
 # - task: AzureCLI@2
 #   inputs:
 #     azureSubscription: 'Private Account wahid2272'
@@ -45,10 +47,12 @@ steps:
   inputs:
     provider: 'azurerm'
     command: 'plan'
+    commandOptions: '-var "APP_ID=$(spn-id)" -var"CLIENT_SECRET=$(spn-secret)"'
     environmentServiceNameAzureRM: 'Private Account wahid2272'
 
 - task: TerraformTaskV3@3
   inputs:
     provider: 'azurerm'
     command: 'apply'
+    commandOptions: '-var "APP_ID=$(spn-id)" -var"CLIENT_SECRET=$(spn-secret)"'
     environmentServiceNameAzureRM: 'Private Account wahid2272'
