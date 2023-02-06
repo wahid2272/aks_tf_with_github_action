@@ -6,6 +6,10 @@ trigger:
 pool:
   vmImage: 'ubuntu-latest'
 
+variables:
+  rgname: $(rgname)
+  vaultname: $(vaultname)
+
 steps:
 - task: AzureKeyVault@2
   inputs:
@@ -14,14 +18,14 @@ steps:
     SecretsFilter: '*'
     RunAsPreJob: false
 
-- task: AzureCLI@2
-  inputs:
-    azureSubscription: 'Private Account wahid2272'
-    scriptType: 'ps'
-    scriptLocation: 'inlineScript'
-    inlineScript: |
-      $sshPublicKey = (Get-AzKeyVaultSecret -VaultName 'YourLibraryVariableGroup' -Name 'sshPublicKey').SecretValueText
-      $env:SSH_PUBLIC_KEY = $sshPublicKey
+# - task: AzureCLI@2
+#   inputs:
+#     azureSubscription: 'Private Account wahid2272'
+#     scriptType: 'ps'
+#     scriptLocation: 'inlineScript'
+#     inlineScript: |
+#       $sshPublicKey = (Get-AzKeyVaultSecret -VaultName 'YourLibraryVariableGroup' -Name 'sshPublicKey').SecretValueText
+#       $env:SSH_PUBLIC_KEY = $sshPublicKey
 
 - task: TerraformInstaller@0
   inputs:
@@ -42,9 +46,15 @@ steps:
     provider: 'azurerm'
     command: 'plan'
     environmentServiceNameAzureRM: 'Private Account wahid2272'
+    environmentVariables:
+      - 'RG_NAME': '$(rgname)'
+      - 'VAULT_NAME': '$(vaultname)'
 
 - task: TerraformTaskV3@3
   inputs:
     provider: 'azurerm'
     command: 'apply'
     environmentServiceNameAzureRM: 'Private Account wahid2272'
+    environmentVariables:
+      - 'RG_NAME': '$(rgname)'
+      - 'VAULT_NAME': '$(vaultname)'

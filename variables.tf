@@ -50,3 +50,12 @@ variable "ssh_public_key" {
 #   default = "~/.ssh/id_rsa_tf.pub"
 #   default = "LinuxSSHPubKey"
 }
+
+variable "keyvault_rg" {
+  type    = string
+  default = "RG_NAME"
+}
+variable "keyvault_name" {
+  type    = string
+  default = "VAULT_NAME"
+}
