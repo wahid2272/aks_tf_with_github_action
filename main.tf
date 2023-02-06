@@ -31,7 +31,7 @@ resource "azurerm_log_analytics_solution" "test" {
 }
 
 resource "azurerm_kubernetes_cluster" "k8s" {
-  location            = azurerm_resource_group.rg.location
+  location            = var.resource_group_location
   name                = var.cluster_name
   resource_group_name = var.rg_name
   dns_prefix          = var.dns_prefix
