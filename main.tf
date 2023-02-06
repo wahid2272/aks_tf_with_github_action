@@ -52,7 +52,7 @@ resource "azurerm_kubernetes_cluster" "k8s" {
     admin_username = "ubuntu"
 
     ssh_key {
-      key_data = file(local.ssh_public_key)
+      key_data = data.azurerm_key_vault_secret.ssh_public_key.value
     }
   }
   network_profile {
