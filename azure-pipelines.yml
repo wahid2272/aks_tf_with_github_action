@@ -14,6 +14,15 @@ steps:
     SecretsFilter: '*'
     RunAsPreJob: false
 
+- task: AzureCLI@2
+  inputs:
+    azureSubscription: 'Private Account wahid2272'
+    scriptType: 'ps'
+    scriptLocation: 'inlineScript'
+    inlineScript: |
+      $sshPublicKey = (Get-AzKeyVaultSecret -VaultName 'YourLibraryVariableGroup' -Name 'sshPublicKey').SecretValueText
+      $env:SSH_PUBLIC_KEY = $sshPublicKey
+
 - task: TerraformInstaller@0
   inputs:
     terraformVersion: 'latest'
