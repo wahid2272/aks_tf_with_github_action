@@ -1,9 +1,3 @@
-# Resource Group
-# resource "azurerm_resource_group" "rg" {
-#   location = var.resource_group_location
-#   name     = var.rg_name
-# }
-
 resource "random_id" "log_analytics_workspace_name_suffix" {
   byte_length = 8
 }
