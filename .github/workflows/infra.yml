@@ -19,17 +19,18 @@ jobs:
     defaults:
       run:
         working-irectory: ./terraform
-      steps:
-        - uses: actions/checkout@v2
+      
+    steps:
+      - uses: actions/checkout@v2
 
-        - name: Terraform Setup
-          uses: hashicorp/setup-terraform@v1
+      - name: Terraform Setup
+        uses: hashicorp/setup-terraform@v1
 
-        - name: Terraform Init
-          run: terraform init
-        
-        - name: Terraform Plan
-          run: terraform plan
+      - name: Terraform Init
+        run: terraform init
+      
+      - name: Terraform Plan
+        run: terraform plan
 
-        - name: Terraform Apply
-          run: terraform apply -auto-approve
+      - name: Terraform Apply
+        run: terraform apply -auto-approve
