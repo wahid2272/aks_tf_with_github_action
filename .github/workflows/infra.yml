@@ -1,0 +1,35 @@
+name: TERRAFORM
+
+on:
+  push:
+    branches: [ main ]
+    paths: 
+    - 'terraform/**'
+
+  workflow_dispatch:
+jobs:
+  terraforms:
+    runs-on: ubuntu-latest
+
+    env:
+      APP_ID: $({ secters.APP_ID })
+      CLIENT_SECRET: $({ secrets.CLIENT_SECTER })
+      STORAGE_KEY: $({ secrets.STORAGE_KEY})
+
+    defaults:
+      run:
+        working-irectory: ./terraform
+      steps:
+        - uses: actions/checkout@v2
+
+        - name: Terraform Setup
+          uses: hashicorp/setup-terraform@v1
+
+        - name: Terraform Init
+          run: terraform init
+        
+        - name: Terraform Plan
+          run: terraform plan
+
+        - name: Terraform Apply
+          run: terraform apply -auto-approve
