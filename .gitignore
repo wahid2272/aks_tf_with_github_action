@@ -15,3 +15,6 @@ azurek8s
 
 # Local .vscode directories
 .vscode/*
+
+# Azure-pipelines 
+azure-pipelines.yml
