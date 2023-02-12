@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
 
     env:
-      APP_ID: ${{ secters.APP_ID }}
+      APP_ID: ${{ secrets.APP_ID }}
       CLIENT_SECRET: ${{ secrets.CLIENT_SECTER }}
       STORAGE_KEY: ${{ secrets.STORAGE_KEY}}
       ARM_RG_NAME: ${{ secrets.ARM_RG_NAME }}
