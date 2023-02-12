@@ -6,7 +6,7 @@ variable "agent_count" {
 # Set the values for these variable in terraform.tfvars
 variable "rg_name" {
   description = "resource group"
-  default = "aks-terraform"
+  default = "aks-terraform" 
 }
 
 variable "STORAGE_KEY" {
