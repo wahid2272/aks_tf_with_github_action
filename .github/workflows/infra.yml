@@ -14,10 +14,6 @@ jobs:
     env:
       APP_ID: $({ secters.APP_ID })
       CLIENT_SECRET: $({ secrets.CLIENT_SECTER })
-      STORAGE_KEY: $({ secrets.STORAGE_KEY})
-      ARM_RG_NAME: $({ secrets.ARM_RG_NAME })
-      ARM_CONTAINER_NAME: $({ secrets.ARM_CONTAINER_NAME })
-      ARM_STORAGE_ACCOUNT_NAME: $({ secrets.ARM_STORAGE_ACCOUNT_NAME })
 
     defaults:
       run:
@@ -30,6 +26,11 @@ jobs:
         uses: hashicorp/setup-terraform@v1
 
       - name: Terraform Init
+        env:
+          STORAGE_KEY: $({ secrets.STORAGE_KEY})
+          ARM_RG_NAME: $({ secrets.ARM_RG_NAME })
+          ARM_CONTAINER_NAME: $({ secrets.ARM_CONTAINER_NAME })
+          ARM_STORAGE_ACCOUNT_NAME: $({ secrets.ARM_STORAGE_ACCOUNT_NAME })
         run: terraform init -backend-config="resource_group_name{{ env.ARM_RG_NAME }}" -backend-config="storage_account_name{{ env.ARM_STORAGE_ACCOUNT_NAME }}" -backend-config="container_name{{ env.ARM_CONTAINER_NAME }}" -backend-config="key{{ env.STORAGE_KEY }}"
       
       - name: Terraform Plan
