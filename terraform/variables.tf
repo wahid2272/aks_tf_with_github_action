@@ -23,6 +23,22 @@ variable "CLIENT_SECRET" {
 #   default = "spn-secret"
 }
 
+variable "SUBSCRIPTION_ID" {
+  description = "Subscription ID"
+}
+
+variable "TENANT_ID" {
+  description = "Tenant ID"
+}
+
+variable "CLIENT_ID" {
+  description = "Client ID"
+}
+
+variable "CLIENT_SECRET" {
+  description = "Client Secret"
+}
+
 variable "cluster_name" {
   default = "k8stest"
 }
