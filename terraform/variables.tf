@@ -35,10 +35,6 @@ variable "CLIENT_ID" {
   description = "Client ID"
 }
 
-variable "CLIENT_SECRET" {
-  description = "Client Secret"
-}
-
 variable "cluster_name" {
   default = "k8stest"
 }
