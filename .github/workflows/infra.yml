@@ -16,10 +16,6 @@ jobs:
       TENANT_ID: ${{ secrets.TENANT_ID }}
       SUBSCRIPTION_ID: ${{ secrets.SUBSCRIPTION_ID }}
       CLIENT_SECRET: ${{ secrets.CLIENT_SECTER }}
-      STORAGE_KEY: ${{ secrets.STORAGE_KEY}}
-      RG_NAME: ${{ secrets.RG_NAME }}
-      CONTAINER_NAME: ${{ secrets.CONTAINER_NAME }}
-      STORAGE_ACCOUNT_NAME: ${{ secrets.STORAGE_ACCOUNT_NAME }}
 
     defaults:
       run:
