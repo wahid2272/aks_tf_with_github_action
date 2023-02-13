@@ -12,10 +12,10 @@ jobs:
     runs-on: ubuntu-latest
 
     env:
-      APP_ID: ${{ secrets.APP_ID }}
-      TENANT_ID: ${{ secrets.TENANT_ID }}
-      SUBSCRIPTION_ID: ${{ secrets.SUBSCRIPTION_ID }}
-      CLIENT_SECRET: ${{ secrets.CLIENT_SECTER }}
+      ARM_CLIENT_ID: ${{ secrets.APP_ID }}
+      ARM_CLIENT_SECRET: ${{ secrets.CLIENT_SECTER }}
+      ARM_TENANT_ID: ${{ secrets.TENANT_ID }}
+      ARM_SUBSCRIPTION_ID: ${{ secrets.SUBSCRIPTION_ID }}
 
     defaults:
       run:
@@ -29,10 +29,10 @@ jobs:
 
       - name: Terraform Init
         env:
-          APP_ID: ${{ secrets.APP_ID }}
-          TENANT_ID: ${{ secrets.TENANT_ID }}
-          SUBSCRIPTION_ID: ${{ secrets.SUBSCRIPTION_ID }}
-          CLIENT_SECRET: ${{ secrets.CLIENT_SECTER }}
+          ARM_CLIENT_ID: ${{ secrets.APP_ID }}
+          ARM_CLIENT_SECRET: ${{ secrets.CLIENT_SECTER }}
+          ARM_TENANT_ID: ${{ secrets.TENANT_ID }}
+          ARM_SUBSCRIPTION_ID: ${{ secrets.SUBSCRIPTION_ID }}
           STORAGE_KEY: $({ secrets.STORAGE_KEY})
           RG_NAME: $({ secrets.ARM_RG_NAME })
           CONTAINER_NAME: $({ secrets.ARM_CONTAINER_NAME })
