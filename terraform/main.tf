@@ -38,6 +38,7 @@ resource "azurerm_kubernetes_cluster" "k8s" {
     vm_size    = "Standard_D2_v2"
     node_count = var.agent_count
   }
+
   linux_profile {
     admin_username = "ubuntu"
 
@@ -45,10 +46,12 @@ resource "azurerm_kubernetes_cluster" "k8s" {
       key_data = file(var.ssh_public_key)
     }
   }
+
   network_profile {
     network_plugin    = "kubenet"
     load_balancer_sku = "standard"
   }
+  
   service_principal {
     client_id     = var.APP_ID
     client_secret = var.CLIENT_SECRET
