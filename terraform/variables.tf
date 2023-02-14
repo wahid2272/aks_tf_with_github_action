@@ -70,6 +70,7 @@ variable "resource_group_name_prefix" {
 variable "ssh_public_key" {
 #   type        = string
   description = "The SSH public key."
-  default = "./id_rsa_tf.pub"
+  # default = "./id_rsa_tf.pub"
+  default = ""
 }
 
