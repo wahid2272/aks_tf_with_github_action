@@ -9,27 +9,27 @@ variable "rg_name" {
   default = "aks-terraform" 
 }
 
-variable "STORAGE_KEY" {
-  description = "storage key id"
-}
+# variable "STORAGE_KEY" {
+#   description = "storage key id"
+# }
 
 variable "APP_ID" {
   description = "service principal app id"
 #   default = "spn-id"
 }
 
-variable "CLIENT_SECRET" {
-  description = "aks service principal client secret"
-#   default = "spn-secret"
-}
+# variable "CLIENT_SECRET" {
+#   description = "aks service principal client secret"
+# #   default = "spn-secret"
+# }
 
-variable "SUBSCRIPTION_ID" {
-  description = "Subscription ID"
-}
+# variable "SUBSCRIPTION_ID" {
+#   description = "Subscription ID"
+# }
 
-variable "TENANT_ID" {
-  description = "Tenant ID"
-}
+# variable "TENANT_ID" {
+#   description = "Tenant ID"
+# }
 
 # variable "CLIENT_ID" {
 #   description = "Client ID"
