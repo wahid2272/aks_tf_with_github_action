@@ -18,10 +18,10 @@ variable "APP_ID" {
 #   default = "spn-id"
 }
 
-# variable "CLIENT_SECRET" {
-#   description = "aks service principal client secret"
-# #   default = "spn-secret"
-# }
+variable "CLIENT_SECRET" {
+  description = "aks service principal client secret"
+#   default = "spn-secret"
+}
 
 # variable "SUBSCRIPTION_ID" {
 #   description = "Subscription ID"
